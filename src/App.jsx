@@ -1,12 +1,28 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
-function App() {
+import Header from './components/Header.jsx';
+import HomePage from './components/HomePage.jsx';
+import AboutUs from './components/AboutUs.jsx';
+
+export default function App() {
   return (
-    <div>
-      <h1>Hello world</h1>
-      <p>Lorem text</p>
-    </div>
+    <Router>
+      <Header />
+      <main>
+        <Switch>
+          <Route path="/about">
+            <AboutUs />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </main>
+    </Router>
   );
 }
-
-export default App;

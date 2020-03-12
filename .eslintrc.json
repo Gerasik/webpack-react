@@ -19,6 +19,5 @@
         "react"
     ],
     "rules": {
-      "import/extensions": ["error", "never", { "jsx": "always" }]
     }
 }

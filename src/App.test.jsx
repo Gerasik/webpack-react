@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './App.jsx';
+import App from './App.tsx';
 
 it('renders correctly', () => {
   const tree = renderer

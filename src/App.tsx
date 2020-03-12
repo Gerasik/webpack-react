@@ -5,9 +5,9 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Header from './components/Header.jsx';
-import HomePage from './components/HomePage.jsx';
-import AboutUs from './components/AboutUs.jsx';
+import Header from './components/Header';
+import HomePage from './components/HomePage';
+import AboutUs from './components/AboutUs';
 
 export default function App() {
   return (

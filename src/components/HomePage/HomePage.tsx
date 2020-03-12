@@ -1,30 +1,32 @@
 import React from 'react'
-import { Counter } from './types'
+import { ICounter } from './types'
 
-export default function HomePage(props: { counters: Array<Counter>; addCounter: any; increment: any; decrement: any; }) {
+export default function HomePage(props: { counters: ICounter; addCounter: any; increment: any; decrement: any; }) {
   const {
     counters, addCounter, increment, decrement,
-  } = props
-  if (counters && addCounter) {
-    return (
-      <>
-        <button type="button" onClick={addCounter}>Add counter</button>
-        <ul>
-          {
-            counters.map((item: { id: number; value: number; }) => (
-              <li key={item.id}>
-                <b>id:</b>
-                {item.id}
-                {' '}
-                <b>value:</b>
-                {item.value}
-                <button type="button" onClick={() => increment(item.id)}>+</button>
-                <button type="button" onClick={() => decrement(item.id)}>-</button>
-              </li>
-            ))
-          }
-        </ul>
-      </>
-    );
-  }
+  } = props;
+  return (
+    <>
+      <button type="button" onClick={addCounter}>Add counter</button>
+      <ul>
+        {
+          Object.entries(counters).map((item) => {
+            if (item[0] === "counterCount"){
+              return false
+            }
+            return (
+            <li key={item[0]}>
+              <b>id:</b>
+              {item[0]}
+              {' '}
+              <b>value:</b>
+              {item[1]}
+              <button type="button" onClick={() => increment(item[0], item[1])}>+</button>
+              <button type="button" onClick={() => decrement(item[0], item[1])}>-</button>
+            </li>
+          )})
+        }
+      </ul>
+    </>
+  );
 }

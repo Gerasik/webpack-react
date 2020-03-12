@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { addCounterAction, decrementAction, incrementAction } from './actions'
 import HomePage from './HomePage'
 
-const mapStateToProps = (state: { counters: any; }) => ({
-  counters: state.counters,
+const mapStateToProps = (state) => ({
+  counters: state.toJS().counters,
 });
 
 const mapDispatchToProps = (dispatch: (arg0: { type: string; id?: number; }) => void) => ({

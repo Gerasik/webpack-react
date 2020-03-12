@@ -1,6 +1,6 @@
-import { createStore, combineReducers, compose  } from 'redux';
+import { createStore, compose  } from 'redux';
 import counters from '../components/HomePage/reducer';
-
+import { combineReducers } from 'redux-immutable';
 const reducer = combineReducers({ counters });
 
 declare global {

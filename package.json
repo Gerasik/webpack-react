@@ -9,7 +9,11 @@
     }
   },
   "lint-staged": {
-    "*.(js|jsx)": [
+    "*.(js|jsx|ts|tsx|css|scss)": [
+      "npm run prettier",
+      "git add"
+    ],
+    "*.(js|jsx|ts|tsx)": [
       "npm run lint:fix",
       "git add"
     ],
@@ -23,10 +27,10 @@
     "build": "webpack --mode production",
     "test": "jest --watch",
     "coverage": "jest --coverage",
-    "lint": "eslint --debug --ext .jsx,.js src/",
-    "lint:fix": "eslint --ext .jsx,.js src/ --fix",
+    "lint": "eslint --debug",
+    "lint:fix": "eslint",
     "lint:stylelint": "stylelint --syntax scss \"src/**/*.scss\"",
-    "format": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.scss\""
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.scss\""
   },
   "repository": {
     "type": "git",

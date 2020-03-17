@@ -1,14 +1,14 @@
 import ActionType from './constants';
-import { Action } from './models';
+import { ActionInterace } from './models';
 
-export const addCounterAction = (): Action => {
+export const addCounterAction = (): ActionInterace => {
   return { type: ActionType.ADD_COUNTER };
 };
 
-export const incrementAction = (id: number, value: number): Action => {
-  return { type: ActionType.INCREMENT, id, value };
+export const incrementAction = (id: number, value: number): ActionInterace => {
+  return { type: ActionType.INCREMENT, payload: { id, value } };
 };
 
-export const decrementAction = (id: number, value: number): Action => {
-  return { type: ActionType.DECREMENT, id, value };
+export const decrementAction = (id: number, value: number): ActionInterace => {
+  return { type: ActionType.DECREMENT, payload: { id, value } };
 };

@@ -3,18 +3,18 @@ import { createSelector } from 'reselect';
 
 import { addCounterAction, decrementAction, incrementAction } from './actions';
 import HomePage from '../../components/HomePage';
-import { Counter, Action } from './models';
+import { CounterInterace, ActionInterace } from './models';
 
 const countersSelector = createSelector(
-  [(state: { toJS: () => { counters: Counter } }): any => state.toJS().counters],
+  [(state: { toJS: () => { counters: CounterInterace } }): any => state.toJS().counters],
   counters => counters
 );
 
-const mapStateToProps = (state: { toJS: () => { counters: Counter } }): any => ({
+const mapStateToProps = (state: { toJS: () => { counters: CounterInterace } }): any => ({
   counters: countersSelector(state),
 });
 
-type Dispatch = (func: Action) => void;
+type Dispatch = (func: ActionInterace) => void;
 
 const mapDispatchToProps = (dispatch: Dispatch): any => ({
   addCounter: (): void => {

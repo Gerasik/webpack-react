@@ -47,7 +47,8 @@
     "class-methods-use-this": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "import/extensions": ["error", "never"],
-    "import/no-unresolved": 2
+    "import/no-unresolved": 2,
+    "@typescript-eslint/no-namespace": "off"
   },
   "settings": {
     "react": {

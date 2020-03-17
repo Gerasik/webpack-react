@@ -1,26 +1,28 @@
 import { connect } from 'react-redux';
-import { addCounterAction, decrementAction, incrementAction } from './actions'
-import HomePage from './HomePage'
-import { ICounter } from './types';
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
+import { addCounterAction, decrementAction, incrementAction } from './actions';
+import HomePage from './HomePage';
+import { Counter, Action } from './models';
 
 const countersSelector = createSelector(
-  [(state: { toJS: () => { counters: ICounter; }; }) => state.toJS().counters],
-  (counters) => counters
-)
+  [(state: { toJS: () => { counters: Counter } }): any => state.toJS().counters],
+  counters => counters
+);
 
-const mapStateToProps = (state: { toJS: () => { counters: ICounter; }; }) => ({
-  counters: countersSelector(state)
+const mapStateToProps = (state: { toJS: () => { counters: Counter } }): any => ({
+  counters: countersSelector(state),
 });
 
-const mapDispatchToProps = (dispatch: (arg0: { type: string; id?: number; value?: number}) => void) => ({
-  addCounter: () => {
+type Dispatch = (func: Action) => void;
+
+const mapDispatchToProps = (dispatch: Dispatch): any => ({
+  addCounter: (): void => {
     dispatch(addCounterAction());
   },
-  increment: (id: number, value: number) => {
+  increment: (id: number, value: number): void => {
     dispatch(incrementAction(id, value));
   },
-  decrement: (id: number, value: number) => {
+  decrement: (id: number, value: number): void => {
     dispatch(decrementAction(id, value));
   },
 });

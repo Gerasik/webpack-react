@@ -1,14 +1,14 @@
 import { INCREMENT, DECREMENT, ADD_COUNTER } from './actionTypes';
-import { IAction } from './types'
+import { Action } from './models';
 
-export const addCounterAction = ():IAction => {
+export const addCounterAction = (): Action => {
   return { type: ADD_COUNTER };
 };
 
-export const incrementAction =  (id: number, value:number):IAction => {
+export const incrementAction = (id: number, value: number): Action => {
   return { type: INCREMENT, id, value };
 };
 
-export const decrementAction = (id: number, value:number):IAction => {
-  return { type: DECREMENT, id, value};   
+export const decrementAction = (id: number, value: number): Action => {
+  return { type: DECREMENT, id, value };
 };

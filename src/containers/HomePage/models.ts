@@ -4,8 +4,7 @@ import Immutable from 'immutable';
 export interface ActionInterace {
   type: string;
   payload?: {
-    id?: number;
-    value: number;
+    id: number;
   };
 }
 
@@ -14,7 +13,7 @@ export interface CounterInterace {
   [key: string]: number;
 }
 
-export type Reducer<S, A = ActionInterace> = (state: S, action: A) => S;
+export type Reducer<S, A = ActionInterace> = (state: S, action?: A) => S;
 
 export interface HomePageProps {
   counters: CounterInterace;

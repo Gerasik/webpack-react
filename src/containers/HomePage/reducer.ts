@@ -10,19 +10,18 @@ const initialState: Models.State = Immutable.fromJS({
 });
 
 const increaseValue: Models.Reducer<Models.State> = (state, action) => {
-  const { id, value } = action.payload;
-  return state.set(`${id}`, value + 1);
+  const { id } = action.payload;
+  return state.update(`${id}`, value => value + 1);
 };
 
 const decreaseValue: Models.Reducer<Models.State> = (state, action) => {
-  const { id, value } = action.payload;
-  return state.set(`${id}`, value - 1);
+  const { id } = action.payload;
+  return state.update(`${id}`, value => value - 1);
 };
 
 const addCounter: Models.Reducer<Models.State> = (state, action) => {
-  const { value } = action.payload;
   const pos = state.get('counterCount') + 1;
-  return state.set(`${pos}`, value).set('counterCount', pos);
+  return state.set(`${pos}`, 0).set('counterCount', pos);
 };
 
 const homePageReducer: Models.Reducer<Models.State> = (state = initialState, action) => {

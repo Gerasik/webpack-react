@@ -4,7 +4,7 @@ import Immutable from 'immutable';
 export interface ActionInterace {
   type: string;
   payload?: {
-    id: number;
+    id?: number;
     value: number;
   };
 }

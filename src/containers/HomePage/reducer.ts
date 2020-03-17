@@ -6,23 +6,23 @@ import ActionType from './constants';
 const initialState: Models.State = Immutable.fromJS({
   1: 5,
   2: 7,
+  counterCount: 2,
 });
 
 const increaseValue: Models.Reducer<Models.State> = (state, action) => {
   const { id, value } = action.payload;
-
   return state.set(`${id}`, value + 1);
 };
 
 const decreaseValue: Models.Reducer<Models.State> = (state, action) => {
   const { id, value } = action.payload;
-
   return state.set(`${id}`, value - 1);
 };
 
 const addCounter: Models.Reducer<Models.State> = (state, action) => {
+  const { value } = action.payload;
   const pos = state.get('counterCount') + 1;
-  return state.set(`${pos}`, 0).set('counterCount', pos);
+  return state.set(`${pos}`, value).set('counterCount', pos);
 };
 
 const homePageReducer: Models.Reducer<Models.State> = (state = initialState, action) => {

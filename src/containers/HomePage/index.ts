@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import { addCounterAction, decrementAction, incrementAction } from './actions';
+import { addCounter, decrement, increment } from './actions';
 import HomePage from '../../components/HomePage';
-import { CounterInterace, ActionInterace } from './models';
+import { CounterInterace } from './models';
 
 const countersSelector = createSelector(
   [(state: { toJS: () => { counters: CounterInterace } }): any => state.toJS().counters],
@@ -14,19 +14,11 @@ const mapStateToProps = (state: { toJS: () => { counters: CounterInterace } }): 
   counters: countersSelector(state),
 });
 
-type Dispatch = (func: ActionInterace) => void;
-
-const mapDispatchToProps = (dispatch: Dispatch): any => ({
-  addCounter: (): void => {
-    dispatch(addCounterAction());
-  },
-  increment: (id: number, value: number): void => {
-    dispatch(incrementAction(id, value));
-  },
-  decrement: (id: number, value: number): void => {
-    dispatch(decrementAction(id, value));
-  },
-});
+const mapDispatchToProps = {
+  addCounter,
+  increment,
+  decrement,
+};
 
 const HomePageContainer = connect(mapStateToProps, mapDispatchToProps)(HomePage);
 

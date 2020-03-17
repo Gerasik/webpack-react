@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HomePageProps } from './models';
+import { HomePageProps } from '../../containers/HomePage/models';
 
 const HomePage: React.FunctionComponent<HomePageProps> = props => {
   const { counters, addCounter, increment, decrement } = props;

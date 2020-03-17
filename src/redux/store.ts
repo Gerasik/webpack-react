@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 import { combineReducers } from 'redux-immutable';
 
-import counters from '../components/HomePage/reducer';
+import counters from '../containers/HomePage/reducer';
 
 const reducer = combineReducers({ counters });
 

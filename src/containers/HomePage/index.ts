@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import { addCounterAction, decrementAction, incrementAction } from './actions';
-import HomePage from './HomePage';
+import HomePage from '../../components/HomePage';
 import { Counter, Action } from './models';
 
 const countersSelector = createSelector(

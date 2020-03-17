@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
 import { Counter, Action } from './models';
-import { INCREMENT, DECREMENT, ADD_COUNTER } from './actionTypes';
+import ActionType from './constants';
 
 const initialState: Counter = {
   1: 5,
@@ -8,15 +8,15 @@ const initialState: Counter = {
   counterCount: 2,
 };
 
-const counters = (state = Map(initialState), action: Action) => {
+const counters = (state = Map(initialState), action: Action): Counter => {
   switch (action.type) {
-    case INCREMENT: {
+    case ActionType.INCREMENT: {
       return state.set(`${action.id}`, action.value + 1);
     }
-    case DECREMENT: {
+    case ActionType.DECREMENT: {
       return state.set(`${action.id}`, action.value - 1);
     }
-    case ADD_COUNTER: {
+    case ActionType.ADD_COUNTER: {
       const pos = state.get('counterCount') + 1;
       return state.set(`${pos}`, 0).set('counterCount', pos);
     }

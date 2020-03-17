@@ -20,6 +20,4 @@ const mapDispatchToProps = {
   decrement,
 };
 
-const HomePageContainer = connect(mapStateToProps, mapDispatchToProps)(HomePage);
-
-export default HomePageContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

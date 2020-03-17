@@ -11,7 +11,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = props => {
       <ul>
         {Object.entries(counters).map(item => {
           if (item[0] === 'counterCount') {
-            return false;
+            return null;
           }
           return (
             <li key={item[0]}>

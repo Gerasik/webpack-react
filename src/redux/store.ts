@@ -1,15 +1,18 @@
-import { createStore, compose  } from 'redux';
-import counters from '../components/HomePage/reducer';
+import { createStore } from 'redux';
 import { combineReducers } from 'redux-immutable';
+
+import counters from '../components/HomePage/reducer';
+
 const reducer = combineReducers({ counters });
 
+// eslint-disable-next-line prettier/prettier
 declare global {
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
   }
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancers())
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const store = createStore(reducer, composeEnhancers());
 
 export default store;

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { HomePageProps } from './models';
 
 const HomePage: React.FunctionComponent<HomePageProps> = props => {

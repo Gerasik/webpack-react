@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import './style.scss';
 
 function Header(): ReactElement {

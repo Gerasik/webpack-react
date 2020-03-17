@@ -1,15 +1,11 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import React, { ReactElement } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import AboutUs from './components/AboutUs';
 
-export default function App() {
+export default function App(): ReactElement {
   return (
     <Router>
       <Header />

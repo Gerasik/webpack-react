@@ -8,7 +8,7 @@ const initialState: Counter = {
   counterCount: 2,
 };
 
-const counters = (state = Map(initialState), action: Action): Counter => {
+const counters = (state = Map(initialState), action: Action) => {
   switch (action.type) {
     case ActionType.INCREMENT: {
       return state.set(`${action.id}`, action.value + 1);

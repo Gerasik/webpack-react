@@ -1,0 +1,21 @@
+nav {
+  border-bottom: 0.1em solid #000;
+  ul {
+    display: flex;
+    padding: 0;
+    font-weight: bold;
+    li {
+      margin: 0 1em;
+      list-style: none;
+    }
+  }
+  a {
+    color: black;
+    font-size: 1.4em;
+    text-decoration: none;
+    &.active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
